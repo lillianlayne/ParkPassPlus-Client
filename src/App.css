@@ -1,3 +1,17 @@
+:root {
+  --card-bg: #4C4E5950
+}
+
 .ticket-container {
   height: 200px;
+}
+
+.rides-wrapper {
+  gap: 8px;
+}
+
+.ride-wrapper {
+ gap: 12px;
+  background: var(--card-bg);
+  padding: 16px;
 }
