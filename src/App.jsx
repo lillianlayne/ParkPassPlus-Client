@@ -10,7 +10,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-   <div>
+   <div className="App">
       <nav>
         <NavLink><Icons icon="list" />{/* to RideView */}</NavLink>
         <NavLink><Icons icon="favorites" />{/* to MyRides */}</NavLink>

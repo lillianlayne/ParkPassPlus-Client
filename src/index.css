@@ -6,6 +6,10 @@ body {
   font-family: sans-serif;
 }
 
+.App {
+  overflow: scroll;
+  padding-bottom: 120px;
+}
 * {
   margin: 0;
   padding: 0;
@@ -68,7 +72,6 @@ nav {
 .flex-col {
   display: flex;
   flex-direction: column;
-
 }
 
 .center-items {

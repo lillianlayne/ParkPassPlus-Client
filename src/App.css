@@ -10,8 +10,9 @@
   gap: 8px;
 }
 
-.ride-wrapper {
+.ride-card {
  gap: 12px;
   background: var(--card-bg);
   padding: 16px;
+  border-radius: 16px;
 }
