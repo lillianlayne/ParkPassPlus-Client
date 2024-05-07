@@ -3,11 +3,32 @@ body {
   background: #0c0e17;
   color: white;
   width: 100%;
+  font-family: sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 24px;
+  line-height: 100%;
+  font-weight: 500;
+}
+
+h4 {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 14px;
+  font-weight: 200
+}
+
+.caption {
+  text-transform: Capitalize;
+  letter-spacing: .12em;
+  font-size: 12px;
+  font-weight: 100
 }
 
 nav {
@@ -32,6 +53,7 @@ nav {
 .max-container {
   width: 342px;
   padding: 16px;
+  margin: 0 auto
 }
 
 .wrapper {
@@ -46,6 +68,7 @@ nav {
 .flex-col {
   display: flex;
   flex-direction: column;
+
 }
 
 .center-items {

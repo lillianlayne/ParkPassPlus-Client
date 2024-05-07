@@ -1,9 +1,12 @@
 import React from 'react'
 
-const RideCard = () => {
+const RideCard = ({title, park}) => {
   return (
-    <div>
-      
+    <div className='ride-wrapper wrapper flex-col'>
+      <h4>{title}</h4>
+      <div className="caption">
+        {park}
+      </div>
     </div>
   )
 }
