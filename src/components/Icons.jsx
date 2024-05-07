@@ -17,7 +17,7 @@ const Icons = (props) => {
         width="16"
         height="16"
         fill="white"
-        class="bi bi-plus-circle-fill"
+        className="bi bi-plus-circle-fill"
         viewBox="0 0 16 16"
       >
         <path d={icons[props.icon]} />
