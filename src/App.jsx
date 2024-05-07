@@ -4,13 +4,13 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { Route, Routes, NavLink } from "react-router-dom";
 import Icons from "./components/Icons";
-// import TicketCard from "./components/TicketCard";
+import RideView from "./pages/RideView";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-   <div>
+   <div className="App">
       <nav>
         <NavLink><Icons icon="list" />{/* to RideView */}</NavLink>
         <NavLink><Icons icon="favorites" />{/* to MyRides */}</NavLink>
@@ -19,7 +19,7 @@ function App() {
       </nav>
       <main>
         <Routes>
-          <Route />
+          <Route path="/" element={ <RideView /> } />
         </Routes>
       </main>
    </div>
