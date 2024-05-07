@@ -17,6 +17,11 @@ function App() {
         <NavLink><Icons icon="ticket" />{/* to Ticket */}</NavLink>
         <NavLink><Icons icon="logout" />{/* to Logout */}</NavLink>
       </nav>
+      <main>
+        <Routes>
+          <Route />
+        </Routes>
+      </main>
    </div>
     
   );
