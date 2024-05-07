@@ -17,7 +17,7 @@ function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={ <RideView /> } />
+          <Route path="*" element={ <RideView /> } />
           <Route path="/ride/:id" element={ <RideDetails /> } />
         </Routes>
       </main>

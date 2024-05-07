@@ -19,19 +19,20 @@ const RideView = () => {
   }, []);
 
   return (
-    <div className="max-container">
-      <h1>Rides</h1>
-      <div className="flex-col rides-wrapper">
-        {rides.map((ride) => (
-          <RideCard
-            title={ride.name}
-            park={ride.location}
-            key={ride._id}
-            rideId={ride._id}
-          />
-        ))}
+      <div className="max-container">
+        <h1>Rides</h1>
+        <div className="flex-col rides-wrapper">
+          {rides.map((ride) => (
+            <RideCard
+              title={ride.name}
+              park={ride.location}
+              key={ride._id}
+              rideId={ride._id}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+   
   );
 };
 
