@@ -14,7 +14,7 @@ const TicketCard = (props) => {
   };
 
   return (
-    <div className="ticket-container" style={colors[props.type]}>
+    <div className="ticket-container max-container flex-col justify-between" style={colors[props.type]}>
       <div className="label">{props.type} Pass</div>
       <div className="body-copy">{props.description}</div>
     </div>
