@@ -1,13 +1,11 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { Route, Routes, NavLink } from "react-router-dom";
+import { Route, Routes, NavLink, useParams } from "react-router-dom";
 import Icons from "./components/Icons";
 import RideView from "./pages/RideView";
+import RideDetails from "./pages/RideDetails"
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
    <div className="App">
@@ -19,7 +17,8 @@ function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={ <RideView /> } />
+          <Route path="*" element={ <RideView /> } />
+          <Route path="/ride/:id" element={ <RideDetails /> } />
         </Routes>
       </main>
    </div>
