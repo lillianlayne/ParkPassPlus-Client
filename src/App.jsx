@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { Route, Routes, NavLink } from "react-router-dom";
 import Icons from "./components/Icons";
-import TicketCard from "./components/TicketCard";
+// import TicketCard from "./components/TicketCard";
 
 function App() {
   const [count, setCount] = useState(0);

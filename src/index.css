@@ -1,9 +1,8 @@
-
-
 body {
- margin: 0 auto;
- background: #0C0E17;
- color: white;
+  margin: 0 auto;
+  background: #0c0e17;
+  color: white;
+  width: 100%;
 }
 
 h1 {
@@ -19,7 +18,7 @@ nav {
   position: fixed;
   bottom: 0;
   padding: 2rem 0;
-  background: #1A1C28
+  background: #1a1c28;
 }
 
 .icon-wrapper {
@@ -28,4 +27,28 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.max-container {
+  width: 342px;
+  padding: 16px;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-items {
+  justify-content: center;
+  align-items: center;
 }
