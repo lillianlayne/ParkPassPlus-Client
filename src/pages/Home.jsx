@@ -26,7 +26,8 @@ const Home = ({user}) => {
         </Link>
         <Link>
         <div className="flex-row">
-          <h3>Schedule</h3>
+          <h3>Itinerary
+</h3>
           <Icons icon="forward" stroke="white"/>
         </div>
         </Link>
