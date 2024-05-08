@@ -4,12 +4,13 @@ import Icons from "../components/Icons";
 import TicketForm from "../components/TicketForm";
 
 const Home = ({user}) => {
+  
   return (
     <div className="max-container flex-col home-container">
       <div className="flex-col">
-        <h1>Welcome, <br /> {user}</h1>
-        
-        <div className="subhead">ticket type</div>
+        <h1>Welcome, <br /> {user.email}</h1>
+        <TicketForm />
+       <div className="border-bottom"></div>
       </div>
       <div className="flex-col home-links">
         <Link to="/ticket">
@@ -26,8 +27,7 @@ const Home = ({user}) => {
         </Link>
         <Link to="/itinerary">
         <div className="flex-row">
-          <h3>Itinerary
-</h3>
+          <h3>Itinerary</h3>
           <Icons icon="forward" stroke="white"/>
         </div>
         </Link>

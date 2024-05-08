@@ -2,8 +2,9 @@ import React from "react";
 import { useState } from "react";
 import Icons from "../components/Icons";
 import RideCard from "../components/RideCard";
+import qrcode from "../assets/qrcode.svg"
 
-const Ticket = () => {
+const Ticket = ({user}) => {
   const [accordion, setAccordion] = useState(false);
   const [ride, setRide] = useState("");
 
@@ -27,8 +28,10 @@ const Ticket = () => {
     <div className="max-container">
       <h1>My Ticket</h1>
       <div className="ticket-card flex-col center-items">
-        <h3>Name</h3>
-        <div className="qr"></div>
+        <h3>{user.email}</h3>
+        <div className="qr">
+        <img src="https://genqrcode.com/embedded?style=2&inner_eye_style=0&outer_eye_style=6&logo=null&color=%23000000&inner_eye_color=%23000000&outer_eye_color=%23000000&imageformat=svg&language=en&frame_style=0&frame_text=SCAN%20ME&frame_color=%23000000&invert_colors=false&gradient_style=0&gradient_color_start=%23FF0000&gradient_color_end=%237F007F&gradient_start_offset=5&gradient_end_offset=95&stl_type=1&logo_remove_background=null&stl_size=100&stl_qr_height=1.5&stl_base_height=2&stl_qr_magnet_type=3&stl_qr_magnet_count=0&type=0&text=https%3A%2F%2Fgithub.com%2Flillianlayne%2FParkPassPlus-Server&width=500&height=500&bordersize=2" alt="qr code" />
+        </div>
         <p>ticket type</p>
       </div>
       <div className="accordion">

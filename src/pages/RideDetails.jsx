@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Icons from "../components/Icons";
 // import {assets} from '../assets'
 
 const RideDetails = () => {
@@ -36,44 +37,69 @@ const RideDetails = () => {
   };
 
   return (
-    <div className="max-container">
-      <h1>{ride.name}</h1>
-      <div className="label"> {ride.location}</div>
-      <br></br>
+    <div className="flex-col max-container">
+      <h1 style={{ marginBottom: 1 }}>{ride.name}</h1>
+      <div className="caption">{ride.location}</div>
       <img
         src={`https://assets.codepen.io/10852085/${image}.png`}
         alt=""
         className="ride-image"
       />
-      <div>
-         {ride.description}
+      <p>{ride.description}</p>
+      <div className="border-bottom"></div>
+      <div className="flex-col padding-top">
+        <div className="label ">min. height</div>
+        <h2>{ride.inches} inches</h2>
       </div>
-      <br></br>
-      <div>
-        <strong>MIN. HEIGHT:</strong> {ride.inches} inches
-      </div>
-      <br></br>
-      <button className="btn-primary" onClick={handleAddToItinerary}>
+
+        <div className="flex-col padding-top">
+          <div className="label border-bottom">
+            wait times
+          </div>
+          <div className="flex-row justify-btwn ride-card">
+            <span className="label large">Standard pass</span>{" "}
+            <span>
+              <p>:24</p>
+            </span>
+          </div>
+          <div className="flex-row justify-btwn ride-card">
+            <span className="label large">Express pass</span>{" "}
+            <span>
+              {" "}
+              <p>:12</p>{" "}
+            </span>
+          </div>
+        </div>
+        <button className="btn-primary added-btn" onClick={handleAddToItinerary}>
         {isAdded ? "ADDED!" : "ADD TO ITENERARY"}
       </button>
-      <br></br>
-      <br></br>
-      <div className="label">CURRENT WAIT TIMES</div>
-      <br></br>
-      <div className="flex-col">
-      <button className="btn-primary"> STANDARD LINE: 24 minutes
-      </button>
       </div>
-      <br></br>
-      <div className="flex-col">
-      <button className="btn-primary"> EXPRESS LINE: 0 minutes
-      </button>
-      </div>
-      
-    </div>
+    // <div className="max-container">
+    //   <h1>{ride.name}</h1>
+    //   <div className="label"> {ride.location}</div>
+    //   <div className="flex-col">
+
+    //   <img
+    //     src={`https://assets.codepen.io/10852085/${image}.png`}
+    //     alt=""
+    //     className="ride-image"
+    //     />
+    //   <p>{ride.description}</p>
+
+    //   <div>
+
+    //   </div>
+    //     </div>
+    //   <button className="btn-primary" onClick={handleAddToItinerary}>
+    //     {isAdded ? "added" : "Add To Itenerary"}
+    //   </button>
+    //   <div className="label border-bottom">CURRENT WAIT TIMES</div>
+    //   <div className="flex-col">
+    //     <div className="flex-row justify-btwn ride-card"><span className="label large">Standard pass</span> <span><p>:24</p></span></div>
+    //     <div className="flex-row justify-btwn ride-card"><span className="label large">Express pass</span> <span> <p>:12</p> </span></div>
+    //   </div>
+    // </div>
   );
 };
-
-
 
 export default RideDetails;

@@ -1,11 +1,11 @@
-import React from 'react'
-import TicketCard from './TicketCard'
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-
+import React from "react";
+import TicketCard from "./TicketCard";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const TicketForm = () => {
-  const [tickets, setTickets] = useState([])
+  const [tickets, setTickets] = useState([]);
+  const [ticketType, setTicketType] = useState("");
 
   const fetchTickets = async () => {
     let response = await axios.get(
@@ -14,22 +14,29 @@ const TicketForm = () => {
     setTickets(response.data);
   };
 
-  useEffect(() => {
-    fetchTickets()
+  const handleType = (e) => {
     
+  };
+
+
+
+  useEffect(() => {
+    fetchTickets();
   }, []);
-  
-  
+
   return (
-    <div className='flex-col'>
+    
+    <div className="flex-col">
+      
+      <h4>Choose Your Ticket Type</h4>
       {
         tickets.map((ticket) => (
-          <TicketCard type={ticket.name} description={ticket.description} background={ticket.color}/>
+            <TicketCard key={ticket._id} type={ticket.name} background={ticket.color} description={ticket.description} id={ticket._id} handleType={(e) => handleType(e.target)}/>
         ))
       }
+      
     </div>
+  );
+};
 
-)
-}
-
-export default TicketForm
+export default TicketForm;
