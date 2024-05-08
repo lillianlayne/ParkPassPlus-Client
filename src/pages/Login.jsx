@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -18,7 +18,7 @@ const Login = () => {
         email: formValues.email,
         password: formValues.password,
       };
-      const BASE_URI = "http://localhost:4000/auth/login";
+      const BASE_URI = "https://park-pass-plus-server-845d186c79ad.herokuapp.com/auth/login";
       const res = await axios.post(BASE_URI, loginInfo);
       navigate("/rides");
     } catch (error) {
@@ -27,35 +27,37 @@ const Login = () => {
   };
 
   return (
-    <div className="signin col">
-      <h2>Sign In</h2>
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
+    <div className="signin flex-col max-container">
+      <h1>Sign In</h1>
+      <div className="form-wrapper centered">
+        <form className="wrapper" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
             <input
               onChange={handleChange}
               name="email"
               type="email"
-              placeholder="example@example.com"
+              placeholder="Your email"
               value={formValues.email}
               required
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
             <input
               onChange={handleChange}
               type="password"
               name="password"
+              placeholder="password"
               value={formValues.password}
               required
             />
           </div>
-          <button disabled={!formValues.email || !formValues.password}>
+          <button className="btn-primary" disabled={!formValues.email || !formValues.password}>
             Sign In
           </button>
         </form>
+        <Link to="/auth/register">
+          <button className="btn-primary">Create Account</button>
+        </Link>
       </div>
     </div>
   );
