@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Client from "../services/api";
 
 const Register = () => {
   let navigate = useNavigate();
@@ -26,8 +27,8 @@ const Register = () => {
         email: formValues.email,
         password: formValues.password,
       };
-      const BASE_URI = "http://localhost:4000/auth/register";
-      const res = await axios.post(BASE_URI, newUserInfo);
+
+      const res = await Client.post("/auth/register", newUserInfo);
       navigate("/auth/login");
     } catch (error) {
       console.error("Registration failed:", error);
