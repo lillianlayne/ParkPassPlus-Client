@@ -13,7 +13,7 @@ import Home from "./pages/Home";
 
 
 function App() {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   
 
@@ -29,6 +29,7 @@ function App() {
   return (
 
     <div className="App">
+      {user ? <Nav /> : null }
      <Routes>
           <Route path="/" element={app} />
           <Route path="/rides" element={<RideView />} />
