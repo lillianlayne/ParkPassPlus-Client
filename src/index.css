@@ -129,3 +129,27 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+
+.align-center {
+  align-items: center;
+}
+
+input {
+  background: none;
+  border: none;
+  width: 100%;
+  color: white;
+  outline: none;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 1.2rem 0;
+  border-radius: 12px;
+  border: none;
+  color: white;
+}
+
+input:focus {
+  border: none !important;
+}

@@ -6,53 +6,25 @@ import RideView from "./pages/RideView";
 import RideDetails from "./pages/RideDetails";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import RideDetails from "./pages/RideDetails"
 import Ticket from "./pages/Ticket";
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+
 
 function App() {
+  const [user, setUser] = useState(true)
+
   return (
     <div className="App">
-      <nav>
-        <NavLink>
-          <Icons icon="list" />
-          {/* to RideView */}
-        </NavLink>
-        <NavLink>
-          <Icons icon="favorites" />
-          {/* to MyRides */}
-        </NavLink>
-        <NavLink>
-          <Icons icon="ticket" />
-          {/* to Ticket */}
-        </NavLink>
-        <NavLink>
-          <Icons icon="logout" />
-          {/* to Logout */}
-        </NavLink>
-        <NavLink to="/auth/register">
-          <Icons icon="newUser" />
-        </NavLink>
-        <NavLink>
-          <Icons icon="login" />
-          {/* to Login */}
-        </NavLink>
-      </nav>
+     {user ? <Nav /> : <Login /> }
       <main>
         <Routes>
-          <Route path="*" element={<RideView />} />
-          <Route path="/ride/:id" element={<RideDetails />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/rides" element={<RideView />} />
+          <Route path="/rides/:id" element={<RideDetails />} />
           <Route path="/auth/register" element={<Register />} />
           <Route path="/auth/login" element={<Login />} />
-        <NavLink to="/"><Icons icon="list" />{/* to RideView */}</NavLink>
-        <NavLink><Icons icon="favorites" />{/* to MyRides */}</NavLink>
-        <NavLink to="/ticket"><Icons icon="ticket" />{/* to Ticket */}</NavLink>
-        <NavLink><Icons icon="logout" />{/* to Logout */}</NavLink>
-      </nav>
-      <main>
-        <Routes>
-          <Route path="*" element={ <RideView /> } />
-          <Route path="/ride/:id" element={ <RideDetails /> } />
-          <Route path="/ticket" element={ <Ticket /> } />
+          <Route path="/ticket" element={<Ticket />} />
         </Routes>
       </main>
     </div>
