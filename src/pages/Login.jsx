@@ -1,11 +1,65 @@
-import React from 'react'
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  let navigate = useNavigate();
 
-export default Login
+  const [formValues, setFormValues] = useState({ email: "", password: "" });
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const loginInfo = {
+        email: formValues.email,
+        password: formValues.password,
+      };
+      const BASE_URI =
+        "https://park-pass-plus-server-845d186c79ad.herokuapp.com/auth/login";
+      const res = await axios.post(BASE_URI, loginInfo);
+      navigate("/ride");
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
+
+  return (
+    <div className="signin col">
+      <h2>Sign In</h2>
+      <div className="card-overlay centered">
+        <form className="col" onSubmit={handleSubmit}>
+          <div className="input-wrapper">
+            <label htmlFor="email">Email</label>
+            <input
+              onChange={handleChange}
+              name="email"
+              type="email"
+              placeholder="example@example.com"
+              value={formValues.email}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="password">Password</label>
+            <input
+              onChange={handleChange}
+              type="password"
+              name="password"
+              value={formValues.password}
+              required
+            />
+          </div>
+          <button disabled={!formValues.email || !formValues.password}>
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
