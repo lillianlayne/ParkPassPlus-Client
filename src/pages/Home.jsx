@@ -8,7 +8,7 @@ const Home = () => {
     <div className="max-container flex-col home-container">
       <div className="flex-col">
         <h1>Welcome, <br /> username</h1>
-        <TicketForm />
+        
         <div className="subhead">ticket type</div>
       </div>
       <div className="flex-col home-links">
