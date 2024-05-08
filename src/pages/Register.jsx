@@ -26,8 +26,7 @@ const Register = () => {
         email: formValues.email,
         password: formValues.password,
       };
-      const BASE_URI =
-        "https://park-pass-plus-server-845d186c79ad.herokuapp.com/auth/register";
+      const BASE_URI = "http://localhost:4000/auth/register";
       const res = await axios.post(BASE_URI, newUserInfo);
       navigate("/auth/login");
     } catch (error) {
