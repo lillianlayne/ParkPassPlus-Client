@@ -21,11 +21,7 @@ const TicketForm = () => {
 
   return (
     <div className='max-container flex-col'>
-      {
-        tickets.map((ticket) => {
-          <TicketCard type={Object.key(ticket)}/>
-        })
-      }
+     
     </div>
 
 )
