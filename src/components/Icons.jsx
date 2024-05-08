@@ -7,18 +7,20 @@ const Icons = (props) => {
     ticket: "M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3z", 
     logout: "M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2",
     list: "M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5", 
-    favorites: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
+    favorites: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314", 
+    arrow: "m19.5 8.25-7.5 7.5-7.5-7.5"
   };
 
   return (
     <div className="icon-wrapper">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="white"
+        width="24"
+        height="24"
+        fill={props.fill}
+        stroke={props.stroke}
         className="bi bi-plus-circle-fill"
-        viewBox="0 0 16 16"
+        viewBox="0 0 24 24"
       >
         <path d={icons[props.icon]} />
       </svg>
@@ -27,3 +29,4 @@ const Icons = (props) => {
 };
 
 export default Icons;
+
