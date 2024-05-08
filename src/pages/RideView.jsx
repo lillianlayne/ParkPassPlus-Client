@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Route, Routes } from "react-router-dom";
 import RideCard from "../components/RideCard";
-import RideDetails from "./RideDetails";
 
 const RideView = () => {
   const [rides, setRides] = useState([]);
@@ -18,21 +16,34 @@ const RideView = () => {
     fetchRides();
   }, []);
 
+  const parks = [...new Set(rides.map((ride) => ride.location))];
+  const parksObj = {};
+
+  parks.forEach((park) => {
+    parksObj[park] = rides.filter((ride) => ride.location === park);
+  });
+
   return (
-      <div className="max-container">
-        <h1>Rides</h1>
-        <div className="flex-col rides-wrapper">
-          {rides.map((ride) => (
-            <RideCard
-              title={ride.name}
-              park={ride.location}
-              key={ride._id}
-              rideId={ride._id}
-            />
-          ))}
-        </div>
+    <div className="max-container">
+      <h1>Rides</h1>
+      <div className="flex-col rides-container">
+        {Object.keys(parksObj).map((park) => (
+          <div className="flex-col rides-parks" key={park}>
+            <div className="caption subhead">{park}</div>
+            <div className="flex-col rides-wrapper">
+              {parksObj[park].map((ride) => (
+                <RideCard
+                  title={ride.name}
+                  park={ride.location}
+                  rideId={ride._id}
+                  key={ride._id}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-   
+    </div>
   );
 };
 
