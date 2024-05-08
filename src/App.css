@@ -2,6 +2,9 @@
   --card-bg: #4c4e5950;
 }
 
+.bg-grey {
+  background: var(--card-bg);
+}
 .ticket-container {
   height: 200px;
 }
