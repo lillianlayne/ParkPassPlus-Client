@@ -18,10 +18,9 @@ const Login = () => {
         email: formValues.email,
         password: formValues.password,
       };
-      const BASE_URI =
-        "https://park-pass-plus-server-845d186c79ad.herokuapp.com/auth/login";
+      const BASE_URI = "http://localhost:4000/auth/login";
       const res = await axios.post(BASE_URI, loginInfo);
-      navigate("/ride");
+      navigate("/rides");
     } catch (error) {
       console.error("Error signing in:", error);
     }
