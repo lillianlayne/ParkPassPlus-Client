@@ -2,9 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Client from "../services/api";
+import { Link } from "react-router-dom";
+import { SignInUser } from "../services/Auth";
 
-const Login = () => {
+const Login = (props) => {
   let navigate = useNavigate();
+  const [user, setUser] = useState();
 
   const [formValues, setFormValues] = useState({ email: "", password: "" });
 
@@ -14,14 +17,16 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
       const loginInfo = {
         email: formValues.email,
-        password: formValues.password,
+        password: formValues.password
       };
 
       const res = await Client.post("/auth/login", loginInfo);
-      navigate("/rides");
+      props.setUser(res)
+      navigate("/");
     } catch (error) {
       console.error("Error signing in:", error);
     }
@@ -29,34 +34,38 @@ const Login = () => {
 
   return (
     <div className="signin flex-col max-container">
-      <h2>Sign In</h2>
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
+      <h1>Sign In</h1>
+      <div className="card-overlay flex-col centered">
+        <form className="warpper flex-col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
             <input
               onChange={handleChange}
               name="email"
               type="email"
-              placeholder="example@example.com"
+              placeholder="Your Email"
               value={formValues.email}
               required
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
             <input
               onChange={handleChange}
               type="password"
               name="password"
+              placeholder="Password"
               value={formValues.password}
               required
             />
           </div>
-          <button disabled={!formValues.email || !formValues.password}>
+          <button className="btn-primary" disabled={!formValues.email || !formValues.password}>
             Sign In
           </button>
         </form>
+        <Link to='/auth/register'>
+          <button className="btn-primary">
+            Create Account
+          </button>
+        </Link>
       </div>
     </div>
   );

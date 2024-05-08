@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Icons from "../components/Icons";
 import TicketForm from "../components/TicketForm";
 
-const Home = () => {
+const Home = ({user}) => {
   return (
     <div className="max-container flex-col home-container">
       <div className="flex-col">
-        <h1>Welcome, <br /> username</h1>
+        <h1>Welcome, <br /> {user}</h1>
         
         <div className="subhead">ticket type</div>
       </div>

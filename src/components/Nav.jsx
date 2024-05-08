@@ -5,10 +5,10 @@ import Itinerary from '../pages/Itinerary'
 import Ticket from '../pages/Ticket'
 import Icons from './Icons'
 
-const Nav = () => {
+const Nav = (props) => {
   return (
     <nav>
-      <NavLink to="/">
+      <NavLink to="/home">
         <Icons icon="list" fill="white"/>
       </NavLink>
       <NavLink to="/">
@@ -18,7 +18,10 @@ const Nav = () => {
         <Icons icon="ticket" fill="white"/>
       </NavLink>
       <NavLink to="/">
+        <div onClick={props.handleLogOut} user={props.user}>
+
         <Icons icon="logout" fill="white"/>
+        </div>
       </NavLink>
     </nav>
       

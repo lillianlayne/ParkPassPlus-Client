@@ -37,15 +37,18 @@ function App() {
   if (user) {
     app = <Home />;
   } else {
-    app = <Login />;
+    app = <Login setUser={setUser} />;
   }
 
   return (
     <div className="App">
-      {/* {user ? <Nav /> : null } */}
+      {/* {user ? <Nav user={user} handleLogout={handleLogOut} /> : null } */}
       <Nav user={user} handleLogOut={handleLogOut} />
+      
+      
       <Routes>
         <Route path="/" element={app} />
+        <Route path="/home" element={<Home user={user}/>} />
         <Route path="/rides" element={<RideView />} />
         <Route path="/rides/:id" element={<RideDetails />} />
         <Route path="/auth/register" element={<Register />} />
