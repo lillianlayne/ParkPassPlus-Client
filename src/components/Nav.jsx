@@ -9,16 +9,16 @@ const Nav = () => {
   return (
     <nav>
       <NavLink to="/">
-        <Icons icon="list"/>
+        <Icons icon="list" fill="white"/>
       </NavLink>
       <NavLink to="/">
-        <Icons icon="favorites"/>
+        <Icons icon="favorites" fill="white"/>
       </NavLink>
       <NavLink to="/ticket">
-        <Icons icon="ticket"/>
+        <Icons icon="ticket" fill="white"/>
       </NavLink>
       <NavLink to="/">
-        <Icons icon="logout"/>
+        <Icons icon="logout" fill="white"/>
       </NavLink>
     </nav>
       
