@@ -59,9 +59,9 @@ h3 {
 p {
   font-size: 15px;
   font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  letter-spacing: 0.5px;
+  font-weight: 100;
+  line-height: 150%;
+  letter-spacing: 0.95px;
 }
 
 .caption {
@@ -82,6 +82,10 @@ p {
   line-height: normal;
   letter-spacing: 1.8px;
   text-transform: uppercase;
+}
+
+.large {
+  font-size: 15px !important;
 }
 
 nav {

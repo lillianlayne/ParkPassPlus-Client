@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Ticket from "./pages/Ticket";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
+import Itinerary from "./pages/Itinerary";
 import { CheckSession } from "./services/Auth";
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
   let app;
 
   if (user) {
-    app = <Home />;
+    app = <Home user={user}/>;
   } else {
     app = <Login setUser={setUser} />;
   }
@@ -48,12 +49,13 @@ function App() {
       
       <Routes>
         <Route path="/" element={app} />
-        <Route path="/home" element={<Home user={user}/>} />
+        <Route path="/home" element={<Home user={user} />} />
         <Route path="/rides" element={<RideView />} />
         <Route path="/rides/:id" element={<RideDetails />} />
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/login" element={<Login setUser={setUser} />} />
-        <Route path="/ticket" element={<Ticket />} />
+        <Route path="/ticket" element={<Ticket user={user}/>} />
+        <Route path="/itinerary" element={<Itinerary user={user}/>} />
       </Routes>
     </div>
   );
