@@ -10,34 +10,48 @@ import Login from "./pages/Login";
 import Ticket from "./pages/Ticket";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
-
+import { CheckSession } from "./services/Auth";
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(null);
 
-  
+  const checkToken = async () => {
+    const user = await CheckSession();
+    setUser(user);
+  };
+
+  const handleLogOut = () => {
+    setUser(null);
+    localStorage.clear();
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      checkToken();
+    }
+  }, []);
 
   let app;
 
   if (user) {
-    app =  <Home />
-     
+    app = <Home />;
   } else {
-    app = <Login />
+    app = <Login />;
   }
 
   return (
-
     <div className="App">
-      {user ? <Nav /> : null }
-     <Routes>
-          <Route path="/" element={app} />
-          <Route path="/rides" element={<RideView />} />
-          <Route path="/rides/:id" element={<RideDetails />} />
-          <Route path="/auth/register" element={<Register />} />
-          <Route path="/auth/login" element={<Login />} />
-          <Route path="/ticket" element={<Ticket />} />
-        </Routes>
+      {/* {user ? <Nav /> : null } */}
+      <Nav user={user} handleLogOut={handleLogOut} />
+      <Routes>
+        <Route path="/" element={app} />
+        <Route path="/rides" element={<RideView />} />
+        <Route path="/rides/:id" element={<RideDetails />} />
+        <Route path="/auth/register" element={<Register />} />
+        <Route path="/auth/login" element={<Login setUser={setUser} />} />
+        <Route path="/ticket" element={<Ticket />} />
+      </Routes>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Client from "../services/api";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -18,8 +19,8 @@ const Login = () => {
         email: formValues.email,
         password: formValues.password,
       };
-      const BASE_URI = "http://localhost:4000/auth/login";
-      const res = await axios.post(BASE_URI, loginInfo);
+
+      const res = await Client.post("/auth/login", loginInfo);
       navigate("/rides");
     } catch (error) {
       console.error("Error signing in:", error);
