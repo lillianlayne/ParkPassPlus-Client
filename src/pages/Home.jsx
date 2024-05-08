@@ -25,7 +25,7 @@ const Home = ({user}) => {
           <Icons icon="forward" stroke="white"/>
         </div>
         </Link>
-        <Link>
+        <Link to="/itinerary">
         <div className="flex-row">
           <h3>Itinerary</h3>
           <Icons icon="forward" stroke="white"/>
