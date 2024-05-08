@@ -11,7 +11,7 @@ const Nav = (props) => {
       <NavLink to="/home">
         <Icons icon="list" fill="white"/>
       </NavLink>
-      <NavLink to="/">
+      <NavLink to="/itinerary">
         <Icons icon="favorites" fill="white"/>
       </NavLink>
       <NavLink to="/ticket">
