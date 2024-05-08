@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Client from "../services/api";
 
-const Login = () => {
+const Login = (props) => {
   let navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({ email: "", password: "" });
@@ -19,8 +19,8 @@ const Login = () => {
         email: formValues.email,
         password: formValues.password,
       };
+      const payload = await Client.post("/auth/login", loginInfo);
 
-      const res = await Client.post("/auth/login", loginInfo);
       navigate("/rides");
     } catch (error) {
       console.error("Error signing in:", error);

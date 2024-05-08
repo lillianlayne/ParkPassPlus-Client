@@ -31,7 +31,7 @@ function App() {
       checkToken();
     }
   }, []);
-
+  console.log(user);
   let app;
 
   if (user) {
@@ -50,7 +50,7 @@ function App() {
         <Route path="/rides/:id" element={<RideDetails />} />
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/login" element={<Login setUser={setUser} />} />
-        <Route path="/ticket" element={<Ticket />} />
+        <Route path="/ticket" element={<Ticket user={user} />} />
       </Routes>
     </div>
   );

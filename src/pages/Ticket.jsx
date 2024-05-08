@@ -3,7 +3,7 @@ import { useState } from "react";
 import Icons from "../components/Icons";
 import RideCard from "../components/RideCard";
 
-const Ticket = () => {
+const Ticket = ({ user }) => {
   const [accordion, setAccordion] = useState(false);
   const [ride, setRide] = useState("");
 
@@ -27,7 +27,7 @@ const Ticket = () => {
     <div className="max-container">
       <h1>My Ticket</h1>
       <div className="ticket-card flex-col center-items">
-        <h3>Name</h3>
+        <h3>Name{user ? user.name : "Guest"}</h3>
         <div className="qr"></div>
         <p>ticket type</p>
       </div>
