@@ -17,14 +17,14 @@ const Login = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     try {
       const loginInfo = {
         email: formValues.email,
         password: formValues.password
       };
-
-      const res = await Client.post("/auth/login", loginInfo);
+      
+      const res = await SignInUser(loginInfo);
+     
       props.setUser(res)
       navigate("/");
     } catch (error) {
